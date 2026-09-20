@@ -3,9 +3,12 @@
   "id": "emissivetexture",
   "version": "1.0",
   "name": "Emissivetexture",
-  "description": "",
-  "authors": [],
-  "contact": {},
+  "description": "Automatically renders *_e.png resource pack textures as pixel-accurate, full-bright emissive textures.",
+  "authors": ["kazut0"],
+  "contact": {
+    "issues": "https://dsc.gg/kazut0",
+    "homepage": "https://modrinth.com/mod/eazydye"
+  },
   "license": "MIT",
   "icon": "assets/emissivetexture/icon.png",
   "environment": "client",
