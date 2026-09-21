@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "emissivetexture",
-  "version": "1.0",
+  "version": "26.2",
   "name": "Emissivetexture",
   "description": "Automatically renders *_e.png resource pack textures as pixel-accurate, full-bright emissive textures.",
   "authors": ["kazut0"],
