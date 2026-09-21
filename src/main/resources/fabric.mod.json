@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "emissivetexture-1_21_11",
+  "version": "${version}",
+  "name": "Emissivetexture-1.21.11",
+  "description": "Automatically renders *_e.png resource pack textures as pixel-accurate, full-bright emissive textures.",
+  "authors": ["kazut0"],
+  "contact": {
+    "issues": "https://dsc.gg/kazut0",
+    "homepage": "https://modrinth.com/mod/eazydye"
+  },
+  "license": "MIT",
+  "icon": "assets/emissivetexture-1_21_11/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "net.kztmc.mc.emissivetexture.Emissivetexture"
+    ]
+  },
+  "mixins": [
+    "emissivetexture-1_21_11.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

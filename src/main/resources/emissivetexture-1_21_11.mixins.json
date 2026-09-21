@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.kztmc.mc.emissivetexture.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+  ],
+  "client": [
+    "BakedGeometryBuilderMixin",
+    "BakedModelManagerMixin",
+    "BlockRenderLayersMixin",
+    "ModelMixin",
+    "OrderedRenderCommandQueueMixin",
+    "RenderLayersMixin",
+    "SpriteLoaderStitchResultMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
