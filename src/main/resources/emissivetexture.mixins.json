@@ -10,7 +10,9 @@
     "ModelManagerMixin",
     "ModelMixin",
     "QuadCollectionBuilderMixin",
-    "SubmitNodeCollectionMixin"
+    "RenderTypesMixin",
+    "SubmitNodeCollectionMixin",
+    "SubmitNodeStorageMixin"
   ],
   "injectors": {
     "defaultRequire": 1
