@@ -71,13 +71,34 @@ public final class EmissiveModels {
             return;
         }
 
-        RenderLayer emissive = createLayer(factory, emissiveFile, flag);
+        // solid系は透明ピクセルを破棄しないので、発光パスは cutout / translucent に置き換える
+        String emissiveFactory = emissiveFactoryFor(factory, false);
+
+        // ファクトリを変更した場合は、1引数版のみ使用する
+        Boolean emissiveFlag = emissiveFactory.equals(factory) ? flag : null;
+
+        RenderLayer emissive = createLayer(emissiveFactory, emissiveFile, emissiveFlag);
         if (emissive != null && emissive != base) {
             LAYERS.put(base, emissive);
             if (DEBUG && REPORTED.add("tracked " + factory + " " + texture)) {
-                LOGGER.info("[emissivetexture][debug] tracked via RenderLayers.{}: {} -> {}", factory, texture, emissiveFile);
+                LOGGER.info(
+                        "[emissivetexture][debug] tracked via RenderLayers.{} (emissive: {}): {} -> {}",
+                        factory, emissiveFactory, texture, emissiveFile
+                );
             }
         }
+    }
+
+    /**
+     * solid系のファクトリを、透明を扱えるものに読み替える。それ以外はそのまま。
+     */
+    private static String emissiveFactoryFor(String factory, boolean translucent) {
+        return switch (factory) {
+            case "entitySolid" -> translucent ? "entityTranslucent" : "entityCutout";
+            case "entitySolidZOffsetForward" ->
+                    translucent ? "entityTranslucent" : "entityCutoutZOffset";
+            default -> factory;
+        };
     }
 
     private static RenderLayer createLayer(String factory, Identifier texture, Boolean flag) {
